@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+<head th:replace="~{fragments::head}">
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="~{fragments::main-top}"></div>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}"></div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div class="all-title-box" th:fragment="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Login</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/}">Savor & Sip</a></li>
+                    <li class="breadcrumb-item active">Login</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+
+<section id="login-form">
+    <div class="noi-dung">
+        <div class="form">
+            <h2>LOGIN</h2>
+            <div th:if = "${param.error}" class="alert alert-danger text-center">
+                Invalid username or password
+            </div>
+            <div th:if = "${param.logout}" class="alert alert-success text-center">
+                You have been logged out!
+            </div>
+            <form th:action="@{/do-login}" method="post">
+                <div class="input-form">
+                    <input type="text" placeholder="Name" name="username" required>
+                </div>
+                <div class="input-form">
+                    <input type="password" placeholder="Password" name="password">
+                </div>
+                <div class="input-form">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="input-form">
+                    <p>Do You Already Have An Account ? <a th:href="@{/register}">Register </a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Start copyright  -->
+<footer th:replace="~{fragments::footer}"></footer>
+<!-- End copyright  -->
+
+<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+<!-- ALL JS FILES -->
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>
